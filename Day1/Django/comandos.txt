@@ -1,0 +1,20 @@
+#executar o comando para rodar o projeto
+ sudo docker-compose run web django-admin startproject composeexample .
+ 
+# dentro da pasta raiz dar permissoes para o admin do django]
+sudo chown -R $USER:$USER .
+
+# conectar com a base de dados, abra o composeexample/settings.py e substitua o DATABASE=... por: 
+   
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'db',
+        'PORT': 5432,
+    }
+}
+
+# Salve o arquivo e execute o comando docker-compose up
